@@ -1,28 +1,32 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  // Store the the task that the user has input using useState
   const [toDoTask, setToDoTask] = useState('');
-
   // Store the list of tasks using useState
+  // Initialize toDoList and editedTasks with empty arrays when the list is open
   const [toDoList, setToDoList] = useState([]);
-
   const [listName, setListName] = useState('');
-
   const [isModalOpen, setisModalOpen] = useState(false);
-
   const [savedLists, setSavedLists] = useState([]);
+  const [editedTasks, setEditedTasks] = useState([]);
+  const [isListOpen, setIsListOpen] = useState(true);
 
   // handleInputChange is used to handle the input change
   const handleInputChange = (event) => {
-    // This updates the state of the task with a new input
     setToDoTask(event.target.value);
+  };
+
+  const handleEditInputChange = (event, index) => {
+    const updatedTasks = [...editedTasks];
+    updatedTasks[index] = event.target.value;
+    setEditedTasks(updatedTasks);
   };
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setEditedTasks([...editedTasks, toDoTask]);
     setToDoList([...toDoList, toDoTask]);
     setToDoTask('');
   };
@@ -37,16 +41,31 @@ function App() {
 
   const handleSaveListConfirm = () => {
     setisModalOpen(false);
-    setSavedLists([...savedLists, {name: listName, tasks: toDoList}]);
+    setSavedLists([...savedLists, {name: listName, tasks: editedTasks}]);
     setToDoList([]);
     setToDoTask('');
     setListName('');
+    setEditedTasks([]);
   };
 
   const handleDeleteList = (index) => {
     const updatedLists = [...savedLists];
     updatedLists.splice(index, 1);
     setSavedLists(updatedLists);
+  };
+
+  const handleEditTask = (index) => {
+    const updatedList = [...toDoList];
+    updatedList[index] = editedTasks[index];
+    setToDoList(updatedList);
+  };
+
+  const handleCloseList = () => {
+    setIsListOpen(false);
+  };
+
+  const handleOpenList = () => {
+    setIsListOpen(true);
   };
 
   return (
@@ -57,19 +76,32 @@ function App() {
           <form onSubmit={handleSubmit}>
             <p>Please Enter A Task:</p>
             <textarea
-              value={toDoTask}
               onChange={handleInputChange}
               maxLength={500}
               rows={10}
               cols={80}
+              value={toDoTask}
             />
             <button type="submit">Add Task</button>
           </form>
+          {isListOpen && (
           <ol>
             {toDoList.map((toDoTask, index) => (
-              <li key={index}>{toDoTask}</li>
+              <li key={index}>
+                  <input
+                   type="text"
+                   value={editedTasks[index] || toDoTask}
+                   onChange={(event) => handleEditInputChange(event, index)}
+                   onBlur={() => handleEditTask(index)}
+                   />
+              </li>
             ))}
           </ol>
+        )}
+        {!isListOpen && toDoList.length > 0 && (
+          <button onClick={handleOpenList}>Open List</button>
+        )}
+          <button onClick={handleCloseList}>Close List</button>
     </div>
 
     {isModalOpen && (
