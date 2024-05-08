@@ -77,7 +77,6 @@ function App() {
       <img src={ToDoListPic} alt="ToDoListPic" style={{ width: '200px', height: '200px' }} className="ToDoListPic"></img>
         <div className="ToDoListHome">
               <h1>To-Do List Maker</h1>
-              <button onClick={handleSaveList}>Save List</button>
               <form onSubmit={handleSubmit}>
                 <p>Please Enter A Task:</p>
                 <textarea
@@ -87,7 +86,10 @@ function App() {
                   cols={80}
                   value={toDoTask}
                 />
-                <button type="submit">Add Task</button>
+                <div className="buttonContainer">
+                  <button type="submit">Add Task</button>
+                  <button onClick={handleSaveList}>Save List</button>
+                </div>
               </form>
               {isListOpen && (
               <ol>
@@ -104,9 +106,9 @@ function App() {
               </ol>
             )}
             {!isListOpen && toDoList.length > 0 && (
-              <button onClick={handleOpenList}>Open List</button>
+              <button onClick={handleOpenList} className="OpenListButton">Open List</button>
             )}
-              <button onClick={handleCloseList}>Close List</button>
+              <button onClick={handleCloseList} className="CloseListButton">Close List</button>
         </div>
 
         {isModalOpen && (
@@ -126,25 +128,27 @@ function App() {
           </div>
         )}
 
-        <div className="SavedLists">
-          <h2>Saved To-Do Lists:</h2>
-          {savedLists.map((list, index) => (
-            <button key={index} onClick={() => setToDoList(list.tasks)}>
-              {list.name}
-            </button>
-          ))}
-        </div>
+        <div className="SavedListsContainer">
+          <div className="SavedLists">
+            <h2>Saved To-Do Lists:</h2>
+            {savedLists.map((list, index) => (
+              <button key={index} onClick={() => setToDoList(list.tasks)}>
+                {list.name}
+              </button>
+            ))}
+          </div>
 
-        <div className="DeleteList">
-          <h2>Delete A To-Do-List</h2>
-          <p>Select A To-Do List To Delete:</p>
-            <div className="grid-container">
-              {savedLists.map((list, index) => (
-                <button key={index} onClick={() => handleDeleteList(index)}>
-                  {list.name}
-                </button>
-              ))}
-            </div>
+          <div className="DeleteList">
+            <h2>Delete A To-Do-List</h2>
+            <p>Select A To-Do List To Delete:</p>
+              <div className="grid-container">
+                {savedLists.map((list, index) => (
+                  <button key={index} onClick={() => handleDeleteList(index)}>
+                    {list.name}
+                  </button>
+                ))}
+              </div>
+          </div>
         </div>
       </div>
     </div>

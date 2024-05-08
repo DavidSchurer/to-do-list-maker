@@ -15,6 +15,8 @@
   margin-left: 10px;
   width: 60%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .ToDoListHome h1 {
@@ -156,4 +158,14 @@ button[type="submit"]:hover {
 .DeleteList button:hover {
   background-color: darkgray;
   color: black;
+}
+
+textarea {
+  resize: none;
+}
+
+.OpenListButton,
+.CloseListButton {
+  width: 210px;
+  padding: 10px 20px;
 }
