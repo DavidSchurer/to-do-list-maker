@@ -42,7 +42,7 @@ function App() {
 
   const handleSaveListConfirm = () => {
     setisModalOpen(false);
-    const newList = { name: listName, tasks: editedTasks};
+    const newList = { name: listName, tasks: editedTasks };
     setSavedLists([...savedLists, newList]);
     setToDoList([]);
     setToDoTask('');
@@ -72,35 +72,35 @@ function App() {
 
   return (
     <>
-    <div className="ToDoListContainer">
-      <div className="ToDoListContent">
-      <img src={ToDoListPic} alt="ToDoListPic" style={{ width: '200px', height: '200px' }} className="ToDoListPic"></img>
-        <div className="ToDoListHome">
-              <h1>To-Do List Maker</h1>
-              <form onSubmit={handleSubmit}>
-                <p>Please Enter A Task:</p>
-                <textarea
-                  onChange={handleInputChange}
-                  maxLength={500}
-                  rows={10}
-                  cols={80}
-                  value={toDoTask}
-                />
-                <div className="buttonContainer">
-                  <button type="submit">Add Task</button>
-                  <button onClick={handleSaveList}>Save List</button>
-                </div>
-              </form>
-              {isListOpen && (
+      <div className="ToDoListContainer">
+        <div className="ToDoListContent">
+          <img src={ToDoListPic} alt="ToDoListPic" style={{ width: '200px', height: '200px' }} className="ToDoListPic"></img>
+          <div className="ToDoListHome">
+            <h1>To-Do List Maker</h1>
+            <form onSubmit={handleSubmit}>
+              <p>Please Enter A Task:</p>
+              <textarea
+                onChange={handleInputChange}
+                maxLength={500}
+                rows={10}
+                cols={80}
+                value={toDoTask}
+              />
+              <div className="buttonContainer">
+                <button type="submit">Add Task</button>
+                <button onClick={handleSaveList}>Save List</button>
+              </div>
+            </form>
+            {isListOpen && (
               <ol>
                 {toDoList.map((toDoTask, index) => (
                   <li key={index}>
-                      <input
+                    <input
                       type="text"
                       value={editedTasks[index] || toDoTask}
                       onChange={(event) => handleEditInputChange(event, index)}
                       onBlur={() => handleEditTask(index)}
-                      />
+                    />
                   </li>
                 ))}
               </ol>
@@ -108,14 +108,14 @@ function App() {
             {!isListOpen && toDoList.length > 0 && (
               <button onClick={handleOpenList} className="OpenListButton">Open List</button>
             )}
-              <button onClick={handleCloseList} className="CloseListButton">Close List</button>
-        </div>
+            <button onClick={handleCloseList} className="CloseListButton">Close List</button>
+          </div>
 
-        {isModalOpen && (
-          <div className="modal">
+          {isModalOpen && (
+            <div className="modal">
               <div className="modal-content">
                 <span className="close" onClick={handleModalClose}>
-                    &times;
+                  &times;
                 </span>
                 <p>Please Enter The Name For Your To-Do List:</p>
                 <input
@@ -125,38 +125,38 @@ function App() {
                 />
                 <button onClick={handleSaveListConfirm}>OK</button>
               </div>
-          </div>
-        )}
+            </div>
+          )}
 
           <div className="SavedListsContainer">
-              <div className="SavedLists">
-                <h2>Saved To-Do Lists:</h2>
-                {/* Move the button rendering outside the h2 element */}
-              </div>
-              {/* Wrap the saved lists in a div and apply the "SavedLists" class to it */}
-              <div className="SavedLists">
-                {savedLists.map((list, index) => (
-                  <button key={index} onClick={() => setToDoList(list.tasks)}>
-                    {list.name}
-                  </button>
-                ))}
-              </div>
-         
+            <div className="SavedLists">
+              <h2>Saved To-Do Lists:</h2>
+              {/* Move the button rendering outside the h2 element */}
+            </div>
+            {/* Wrap the saved lists in a div and apply the "SavedLists" class to it */}
+            <div className="SavedLists">
+              {savedLists.map((list, index) => (
+                <button key={index} onClick={() => setToDoList(list.tasks)}>
+                  {list.name}
+                </button>
+              ))}
+            </div>
+
 
             <div className="DeleteList">
               <h2>Delete To-Do List:</h2>
               <p>Select A To-Do List To Delete:</p>
-                <div className="grid-container">
-                  {savedLists.map((list, index) => (
-                    <button key={index} onClick={() => handleDeleteList(index)}>
-                      {list.name}
-                    </button>
-                  ))}
-                </div>
-            </div>
+              <div className="grid-container">
+                {savedLists.map((list, index) => (
+                  <button key={index} onClick={() => handleDeleteList(index)}>
+                    {list.name}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+      </div>
     </>
   );
 }
