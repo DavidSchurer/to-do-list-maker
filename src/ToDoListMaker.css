@@ -17,6 +17,12 @@
   text-align: left;
 }
 
+.ToDoListHome h1 {
+  border: 5px outset #555;
+  padding: 10px;
+  display: inline-block;
+}
+
 .ToDoListHome button {
   margin-top: 10px;
   padding: 10px 20px;
