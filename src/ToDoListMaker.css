@@ -128,7 +128,7 @@ button[type="submit"]:hover {
 
 .SavedLists h2,
 .DeleteList h2 {
-  margin-left: 10px;
+  margin-left: 0px;
   width: 60%;
   text-align: left;
   border: 5px outset #555;
@@ -137,7 +137,7 @@ button[type="submit"]:hover {
 }
 
 .DeleteList p {
-  margin-left: 10px;
+  margin-left: 0px;
   width: 60%;
   text-align: left;
 }
@@ -168,4 +168,28 @@ textarea {
 .CloseListButton {
   width: 210px;
   padding: 10px 20px;
+}
+
+.SavedListsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Adjust margins or paddings as needed */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.SavedLists {
+  /* Adjust margins or paddings as needed */
+  margin-top: 10px;
+}
+
+.SavedLists h2 {
+  /* Optionally, you can adjust the styles for the h2 element */
+  margin: 0;
+  width: 60%;
+  text-align: left;
+  border: 5px outset #555;
+  padding: 10px;
+  display: inline-block;
 }

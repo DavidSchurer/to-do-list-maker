@@ -128,30 +128,35 @@ function App() {
           </div>
         )}
 
-        <div className="SavedListsContainer">
-          <div className="SavedLists">
-            <h2>Saved To-Do Lists:</h2>
-            {savedLists.map((list, index) => (
-              <button key={index} onClick={() => setToDoList(list.tasks)}>
-                {list.name}
-              </button>
-            ))}
-          </div>
-
-          <div className="DeleteList">
-            <h2>Delete A To-Do-List</h2>
-            <p>Select A To-Do List To Delete:</p>
-              <div className="grid-container">
+          <div className="SavedListsContainer">
+              <div className="SavedLists">
+                <h2>Saved To-Do Lists:</h2>
+                {/* Move the button rendering outside the h2 element */}
+              </div>
+              {/* Wrap the saved lists in a div and apply the "SavedLists" class to it */}
+              <div className="SavedLists">
                 {savedLists.map((list, index) => (
-                  <button key={index} onClick={() => handleDeleteList(index)}>
+                  <button key={index} onClick={() => setToDoList(list.tasks)}>
                     {list.name}
                   </button>
                 ))}
               </div>
+         
+
+            <div className="DeleteList">
+              <h2>Delete To-Do List:</h2>
+              <p>Select A To-Do List To Delete:</p>
+                <div className="grid-container">
+                  {savedLists.map((list, index) => (
+                    <button key={index} onClick={() => handleDeleteList(index)}>
+                      {list.name}
+                    </button>
+                  ))}
+                </div>
+            </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
     </>
   );
 }
