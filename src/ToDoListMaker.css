@@ -6,7 +6,7 @@
 }
 
 .ToDoListContent {
-  background-color: #333;
+  background-color: gray;
   border: 20px inset #555;
   padding: 20px;
 }
@@ -23,6 +23,7 @@
   border: 5px outset #555;
   padding: 10px;
   display: inline-block;
+  color: #F9F5F4;
 }
 
 .ToDoListHome button {
@@ -134,6 +135,7 @@ button[type="submit"]:hover {
   border: 5px outset #555;
   padding: 10px;
   display: inline-block;
+  color: #F9F5F4;
 }
 
 .DeleteList p {
