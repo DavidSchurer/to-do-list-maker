@@ -3,17 +3,32 @@ import './ToDoListMaker.css';
 import ToDoListPic from './toDoListIconPNG.png';
 
 function App() {
+  // --------------------------------[State Variables]--------------------------------
+
+  // This state variable stores the current task input
   const [toDoTask, setToDoTask] = useState('');
-  // Store the list of tasks using useState
-  // Initialize toDoList and editedTasks with empty arrays when the list is open
+
+  // This state variable stores the list of tasks in the To-Do List
   const [toDoList, setToDoList] = useState([]);
+
+  // This state variable stores the name of the current To-Do List
   const [listName, setListName] = useState('');
+
+  // This state variable is to control the opening/closing of the pop-up modal
+  // (The popup window that asks the user to give their To-Do List a name)
   const [isModalOpen, setisModalOpen] = useState(false);
+
+  // This state variable stores the saved To-Do Lists
   const [savedLists, setSavedLists] = useState([]);
+
+  // This state variable stores the edited tasks in the To-Do List
   const [editedTasks, setEditedTasks] = useState([]);
+
+  // This state variable controls whether the list is open/displayed
   const [isListOpen, setIsListOpen] = useState(true);
 
-  // handleInputChange is used to handle the input change
+  // --------------------------------[Event Handlers]--------------------------------
+
   const handleInputChange = (event) => {
     setToDoTask(event.target.value);
   };
