@@ -6,7 +6,7 @@
 }
 
 .ToDoListContent {
-  background-color: gray;
+  background-color: lightslategray;
   border: 20px inset #555;
   padding: 20px;
 }
@@ -23,7 +23,7 @@
   border: 5px outset #555;
   padding: 10px;
   display: inline-block;
-  color: #F9F5F4;
+  color: #00246B;
 }
 
 .ToDoListHome button {
@@ -31,8 +31,8 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: black;
-  color: white;
+  background-color: lightgray;
+  color: #00246B;
   cursor: pointer;
   border: 5px inset #555;
 }
@@ -73,6 +73,7 @@ button[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   border: 5px inset #555;
+  color: #00246B;
 }
 
 button[type="submit"] {
@@ -80,8 +81,8 @@ button[type="submit"] {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: black;
-  color: white;
+  background-color: lightgray;
+  color: #00246B;
   cursor: pointer;
   border: 5px inset #555;
 }
@@ -99,12 +100,12 @@ button[type="submit"]:hover {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   border: 5px inset #555;
 }
 
 .modal-content {
-  background-color: white;
+  background-color: lightslategray;
   margin: 20% auto;
   padding: 20px;
   border: 1px solid darkgray;
@@ -135,7 +136,7 @@ button[type="submit"]:hover {
   border: 5px outset #555;
   padding: 10px;
   display: inline-block;
-  color: #F9F5F4;
+  color: #00246B;
 }
 
 .DeleteList p {
@@ -150,16 +151,16 @@ button[type="submit"]:hover {
   padding: 5px 10px;
   border: 1px solid darkgray;
   border-radius: 5px;
-  background-color: black;
-  color: white;
+  background-color: lightgray;
+  color: #00246B;
   cursor: pointer;
   border: 5px inset #555;
 }
 
 .SavedLists button:hover,
 .DeleteList button:hover {
-  background-color: darkgray;
-  color: black;
+  background-color: rgb(74, 66, 66);
+  color: white;
 }
 
 textarea {
@@ -170,6 +171,7 @@ textarea {
 .CloseListButton {
   width: 210px;
   padding: 10px 20px;
+  
 }
 
 .SavedListsContainer {
@@ -194,4 +196,25 @@ textarea {
   border: 5px outset #555;
   padding: 10px;
   display: inline-block;
+}
+
+.ToDoListContent p {
+  color:#00246B;
+}
+
+textarea,
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 5px inset #555;
+  color: #00246B;
+  background-color: lightgray; /* Added */
+  width: 100%;
+  box-sizing: border-box;
 }

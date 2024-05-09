@@ -78,7 +78,7 @@ function App() {
           <div className="ToDoListHome">
             <h1>To-Do List Maker</h1>
             <form onSubmit={handleSubmit}>
-              <p>Please Enter A Task:</p>
+              <p><strong>Please Enter A Task:</strong></p>
               <textarea
                 onChange={handleInputChange}
                 maxLength={500}
@@ -87,8 +87,8 @@ function App() {
                 value={toDoTask}
               />
               <div className="buttonContainer">
-                <button type="submit">Add Task</button>
-                <button onClick={handleSaveList}>Save List</button>
+                <button type="submit"><strong>Add Task</strong></button>
+                <button onClick={handleSaveList}><strong>Save List</strong></button>
               </div>
             </form>
             {isListOpen && (
@@ -106,9 +106,9 @@ function App() {
               </ol>
             )}
             {!isListOpen && toDoList.length > 0 && (
-              <button onClick={handleOpenList} className="OpenListButton">Open List</button>
+              <button onClick={handleOpenList} className="OpenListButton"><strong>Open List</strong></button>
             )}
-            <button onClick={handleCloseList} className="CloseListButton">Close List</button>
+            <button onClick={handleCloseList} className="CloseListButton"><strong>Close List</strong></button>
           </div>
 
           {isModalOpen && (
@@ -117,7 +117,7 @@ function App() {
                 <span className="close" onClick={handleModalClose}>
                   &times;
                 </span>
-                <p>Please Enter The Name For Your To-Do List:</p>
+                <p><strong>Please Enter The Name For Your To-Do List:</strong></p>
                 <input
                   type="text"
                   value={listName}
@@ -145,7 +145,7 @@ function App() {
 
             <div className="DeleteList">
               <h2>Delete To-Do List:</h2>
-              <p>Select A To-Do List To Delete:</p>
+              <p><strong>Select A To-Do List To Delete:</strong></p>
               <div className="grid-container">
                 {savedLists.map((list, index) => (
                   <button key={index} onClick={() => handleDeleteList(index)}>
