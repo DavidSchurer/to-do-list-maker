@@ -1,4 +1,4 @@
-# ToDo List Maker
+# To-Do List Maker
 
 This is a simple React application for creating and managing to-do lists. It allows users to add tasks, edit them, save to-do lists for later use, and delete saved lists. 
 
