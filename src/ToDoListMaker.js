@@ -8,20 +8,20 @@ function App() {
   // This state variable stores the current task input
   const [toDoTask, setToDoTask] = useState('');
 
-  // This state variable stores the list of tasks in the To-Do List
+  // This state variable stores the list of tasks in the to-do list
   const [toDoList, setToDoList] = useState([]);
 
-  // This state variable stores the name of the current To-Do List
+  // This state variable stores the name of the current to-do list
   const [listName, setListName] = useState('');
 
   // This state variable is to control the opening/closing of the pop-up modal
-  // (The popup window that asks the user to give their To-Do List a name)
+  // (The popup window that asks the user to give their to-do list a name)
   const [isModalOpen, setisModalOpen] = useState(false);
 
-  // This state variable stores the saved To-Do Lists
+  // This state variable stores the saved to-do lists
   const [savedLists, setSavedLists] = useState([]);
 
-  // This state variable stores the edited tasks in the To-Do List
+  // This state variable stores the edited tasks in the to-do list
   const [editedTasks, setEditedTasks] = useState([]);
 
   // This state variable controls whether the list is open/displayed
@@ -94,6 +94,10 @@ function App() {
     setIsListOpen(true);
   };
 
+  // --------------------------------[To-Do List Maker Application Content]--------------------------------
+  // This component is the main application interface for the to-do list maker, it includes UI elements
+  // for entering/submitting/editing tasks for a to-do list, saving to-do lists, and deleting to-do lists.
+  // State variables and event handlers are used in order to manage the behavior of this to-do list maker.
   return (
     <>
       <div className="ToDoListContainer">
@@ -157,7 +161,7 @@ function App() {
                   onChange={(e) => setListName(e.target.value)}
                 />
                 {/* Button for confirming and saving to-do list */}
-                <button onClick={handleSaveListConfirm}>OK</button>
+                <button onClick={handleSaveListConfirm}>Save</button>
               </div>
             </div>
           )}
