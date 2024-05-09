@@ -146,9 +146,7 @@ function App() {
           <div className="SavedListsContainer">
             <div className="SavedLists">
               <h2>Saved To-Do Lists:</h2>
-              {/* Move the button rendering outside the h2 element */}
             </div>
-            {/* Wrap the saved lists in a div and apply the "SavedLists" class to it */}
             <div className="SavedLists">
               {savedLists.map((list, index) => (
                 <button key={index} onClick={() => setToDoList(list.tasks)}>
