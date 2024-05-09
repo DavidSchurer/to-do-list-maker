@@ -1,6 +1,6 @@
 .ToDoListContainer {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -178,18 +178,15 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* Adjust margins or paddings as needed */
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .SavedLists {
-  /* Adjust margins or paddings as needed */
   margin-top: 10px;
 }
 
 .SavedLists h2 {
-  /* Optionally, you can adjust the styles for the h2 element */
   margin: 0;
   width: 60%;
   text-align: left;
@@ -214,7 +211,7 @@ input[type="text"] {
   cursor: pointer;
   border: 5px inset #555;
   color: #00246B;
-  background-color: lightgray; /* Added */
+  background-color: lightgray; 
   width: 100%;
   box-sizing: border-box;
 }
